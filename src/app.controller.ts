@@ -6,7 +6,13 @@ export class AppController {
   constructor(private readonly appService: AppService) {}
 
   @Get()
-  getHello(): string {
-    return this.appService.getHello();
+  postOneUser(): Promise<string> {
+    return this.appService.postUser();
+  }
+
+  @Get('users')
+  getUsers(): Promise<any> {
+    // 簡略化のため、Getメソッドでユーザ作成
+    return this.appService.getUsers();
   }
 }
